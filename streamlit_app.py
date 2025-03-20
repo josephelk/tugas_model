@@ -1,6 +1,7 @@
 import streamlit as st
 import pickle
 import numpy as np
+import pandas as pd
 
 def load_model(filename):
     with open(filename, "rb") as file:
@@ -34,6 +35,15 @@ def predict_with_model(model, scaler, label_encoders, user_input):
 def main():
     st.title('Obesity Prediction App')
     st.info('This app uses Machine Learning to predict obesity levels.')
+
+    # Load dataset
+    dataset_path = "/mnt/data/ObesityDataSet_raw_and_data_sinthetic.csv"
+    df = pd.read_csv(dataset_path)
+    
+    # Tampilkan raw data di Streamlit
+    with st.expander("📊 Data", expanded=True):
+        st.write("This is a raw data")
+        st.dataframe(df.head(10))  # Menampilkan 10 data pertama
 
     # User Inputs
     gender = st.selectbox('Gender', ['Male', 'Female'])
