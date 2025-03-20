@@ -80,3 +80,20 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+import plotly.express as px
+
+# Scatter plot untuk visualisasi hubungan antara tinggi badan, berat badan, dan obesitas
+with st.expander("📊 Data Visualization", expanded=True):
+    st.subheader("Data Visualization")
+    
+    fig = px.scatter(
+        df, 
+        x="Height", 
+        y="Weight", 
+        color="NObeyesdad",  # Warna berdasarkan kategori obesitas
+        title="Height vs Weight Distribution by Obesity Level"
+    )
+    
+    st.plotly_chart(fig)
+
