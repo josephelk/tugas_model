@@ -2,13 +2,13 @@ import streamlit as st
 import pickle
 import numpy as np
 
-# Load trained model, scaler, and encoders
-model_filename = "trained_modell.pkl"
-with open(model_filename, "rb") as file:
-    model, scaler, label_encoders = pickle.load(file)
-
-st.title("Machine Learning App")
-st.info("This app will predict your obesity level!")
+def load_model(filename):
+  model = joblib.load(filename)
+  return model
+  
+def predict_with_model(model, user_input):
+  prediction = model.predict([user_input])
+  return prediction[0]
 
 # User input fields
 gender = st.selectbox("Gender", label_encoders["Gender"].classes_)
