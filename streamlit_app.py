@@ -3,12 +3,12 @@ import pickle
 import numpy as np
 
 # Load trained model, scaler, and encoders
-model_filename = "obesity_model.pkl"
+model_filename = "trained_modell.pkl"
 with open(model_filename, "rb") as file:
     model, scaler, label_encoders = pickle.load(file)
 
-st.title("Obesity Prediction App")
-st.info("Enter your details to predict your obesity level.")
+st.title("Machine Learning App")
+st.info("This app will predict your obesity level!")
 
 # User input fields
 gender = st.selectbox("Gender", label_encoders["Gender"].classes_)
