@@ -81,7 +81,6 @@ def main():
 if __name__ == "__main__":
     main()
 
-# import plotly.express as px
 
 # # Scatter plot untuk visualisasi hubungan antara tinggi badan, berat badan, dan obesitas
 # with st.expander("📊 Data Visualization", expanded=True):
